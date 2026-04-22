@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Vendora.</div>
+        <button class="hamburger" id="hamburgerBtn">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+</button>
+        
+        <div class="search">
+            <input type="text" placeholder="Cari style impianmu...">
+            <button>Cari</button>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#products">Produk</a>
+            <a href="#history">Riwayat</a>
+            <a href="#contact">Hubungi Kami</a>
+            <button class="cart-toggle" id="cartToggleBtn">🛒 Keranjang (0)</button>
+        </div>
+    </nav>
+
+    <div id="cartBox" class="cart-box">
+        <h4>Keranjang Belanja</h4>
+        <ul id="cartItemList">
+            </ul>
+        <div class="cart-total" id="cartTotalDisplay">Total: Rp 0</div>
+    </div>
+
+    <section id="home" class="banner">
+        <h1>Elevate Your <span>Style</span></h1>
+        <p>Temukan koleksi fashion premium terbaru dengan kualitas terbaik dan harga yang sangat masuk akal.</p>
+        <a href="#products" class="btn-red">Belanja Sekarang</a>
+    </section>
+
+    <div class="pilihan">
+        <div class="feat"><span class="icon">🚚</span><div><strong>Gratis Ongkir</strong><span>Min. Rp 500rb</span></div></div>
+        <div class="feat"><span class="icon">💳</span><div><strong>Pembayaran Aman</strong><span>Berbagai metode</span></div></div>
+        <div class="feat"><span class="icon">🔄</span><div><strong>Garansi 30 Hari</strong><span>Uang kembali</span></div></div>
+        <div class="feat"><span class="icon">⭐</span><div><strong>Terpercaya</strong><span>Ribuan ulasan</span></div></div>
+    </div>
+
+    <main class="content">
+
+        <div class="category-top fade-in">
+            <h3>Pilih Kategori</h3>
+            <div class="tags">
+                <span class="tag">Semua Produk</span>
+                <span class="tag">Pakaian Pria</span>
+                <span class="tag">Sepatu</span>
+                <span class="tag">Aksesoris</span>
+                <span class="tag">Tas & Ransel</span>
+            </div>
+        </div>
+
+        <section id="products">
+            <h2 class="sec-title">Koleksi Spesial</h2>
+            <div class="grid">
+                
+                <div class="card fade-in">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYYZNnYzvJ8rRY7kuwbRTi_b-nZm8LpoVc-w&s" alt="Sneakers">
+                    <div class="card-body">
+                        <div class="card-cat">Sepatu Pria</div>
+                        <div class="card-name">Sneakers Urban Premium</div>
+                        <div class="card-ft">
+                            <span class="price">Rp 899.000</span>
+                            <div class="card-actions">
+                                <button class="btn-cart">Keranjang</button>
+                                <button class="btn-checkout">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR-IRttOFmAAskvzT59_31-LFPjE3IHba9uA&s" alt="Jaket">
+                    <div class="card-body">
+                        <div class="card-cat">Pakaian Pria</div>
+                        <div class="card-name">Jaket Kulit Classic Vintage</div>
+                        <div class="card-ft">
+                            <span class="price">Rp 1.250.000</span>
+                            <div class="card-actions">
+                                <button class="btn-cart">Keranjang</button>
+                                <button class="btn-checkout">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Jam">
+                    <div class="card-body">
+                        <div class="card-cat">Aksesoris</div>
+                        <div class="card-name">Jam Tangan Minimalis Elite</div>
+                        <div class="card-ft">
+                            <span class="price">Rp 1.450.000</span>
+                            <div class="card-actions">
+                                <button class="btn-cart">Keranjang</button>
+                                <button class="btn-checkout">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400" alt="Tas">
+                    <div class="card-body">
+                        <div class="card-cat">Tas & Ransel</div>
+                        <div class="card-name">Backpack Kanvas Explorer</div>
+                        <div class="card-ft">
+                            <span class="price">Rp 450.000</span>
+                            <div class="card-actions">
+                                <button class="btn-cart">Keranjang</button>
+                                <button class="btn-checkout">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400" alt="Kacamata">
+                    <div class="card-body">
+                        <div class="card-cat">Aksesoris Unisex</div>
+                        <div class="card-name">Kacamata Hitam Aviator</div>
+                        <div class="card-ft">
+                            <span class="price">Rp 299.000</span>
+                            <div class="card-actions">
+                                <button class="btn-cart">Keranjang</button>
+                                <button class="btn-checkout">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400" alt="Celana">
+                    <div class="card-body">
+                        <div class="card-cat">Pakaian Pria</div>
+                        <div class="card-name">Celana Denim Blue Wash</div>
+                        <div class="card-ft">
+                            <span class="price">Rp 350.000</span>
+                            <div class="card-actions">
+                                <button class="btn-cart">Keranjang</button>
+                                <button class="btn-checkout">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="history" class="transaction-history fade-in">
+            <h2 class="sec-title">Riwayat Transaksi</h2>
+            <ul id="historyList"></ul>
+        </section>
+
+        <section id="contact" class="contact-section fade-in">
+            <h2 class="sec-title">Hubungi Kami</h2>
+            <div class="contact-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">Nama Lengkap *</label>
+                        <input type="text" id="contactName" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">Email Aktif *</label>
+                        <input type="email" id="contactEmail" placeholder="contoh@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactCategory">Kategori *</label>
+                        <select id="contactCategory" required>
+                            <option value="" disabled selected>Pilih Kategori...</option>
+                            <option value="Pertanyaan">Pertanyaan / Info Produk</option>
+                            <option value="Saran">Saran</option>
+                            <option value="Kritik">Kritik / Keluhan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage">Isi Pesan *</label>
+                        <textarea id="contactMessage" placeholder="Tuliskan pesan, saran, atau kritik Anda di sini..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-contact">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="fgrid">
+            <div>
+                <h4>VENDORA.</h4>
+                <p>Platform marketplace fashion modern terpercaya untuk melengkapi gaya hidup dan ekspresi dirimu setiap hari.</p>
+            </div>
+            <div>
+                <h4>Layanan Kami</h4>
+                <a href="#">Cara Pembelian</a>
+                <a href="#">Lacak Pesanan</a>
+                <a href="#">Pengembalian Dana</a>
+            </div>
+            <div>
+                <h4>Tentang Kami</h4>
+                <a href="#">Profil Perusahaan</a>
+                <a href="#">Karir</a>
+                <a href="#contact">Hubungi Kami</a>
+            </div>
+            <div>
+                <h4>Sosial Media</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Tiktok</a>
+            </div>
+        </div>
+        <div class="nyoh">© 2026 Vendora. Dibuat dengan sepenuh hati.</div>
+    </footer>
+
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-box">
+            <h3>Checkout Pesanan</h3>
+            
+            <div class="form-group">
+                <label>Nama Lengkap *</label>
+                <input type="text" id="custName" placeholder="Contoh: Budi Santoso">
+            </div>
+
+            <div class="form-group">
+                <label>No. WhatsApp Aktif *</label>
+                <input type="number" id="custPhone" placeholder="Contoh: 08123456789">
+            </div>
+
+            <div class="form-group">
+                <label>Detail Alamat (Jalan, RT/RW) *</label>
+                <input type="text" id="addrStreet" placeholder="Jalan Mawar No. 10, RT 01/02">
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Desa / Kelurahan *</label>
+                    <input type="text" id="addrVillage" placeholder="Kelurahan">
+                </div>
+                <div class="form-group">
+                    <label>Kabupaten / Kota *</label>
+                    <input type="text" id="addrRegency" placeholder="Kabupaten">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Provinsi *</label>
+                <input type="text" id="addrProvince" placeholder="Provinsi">
+            </div>
+
+            <div class="form-group">
+                <label>Metode Pembayaran *</label>
+                <select id="paymentMethod">
+                    <option value="Transfer Bank">Transfer Bank</option>
+                    <option value="E-Wallet">E-Wallet (OVO/Dana/Gopay)</option>
+                    <option value="COD">COD (Bayar di Tempat)</option>
+                </select>
+            </div>
+            
+            <div id="paymentInfoArea" class="payment-info" style="display: flex;">
+                <p>Silakan transfer ke rekening berikut:</p>
+                <div class="rek">BCA 1234 5678 90 a.n Vendora</div>
+                <p>Atau Scan QRIS di bawah ini:</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="Scan QRIS">
+            </div>
+
+            <div id="proofContainer" class="form-group" style="display: flex; margin-top: 5px;">
+                <label for="paymentProof" style="color: #ef4444;">Upload Bukti Transfer / E-Wallet *</label>
+                <input type="file" id="paymentProof" accept="image/*,application/pdf" style="padding: 8px;">
+            </div>
+
+            <div class="modal-actions">
+                <button id="cancelCheckout">Batalkan</button>
+                <button id="confirmCheckout">Konfirmasi Pesanan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
