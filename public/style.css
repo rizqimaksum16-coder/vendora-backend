@@ -94,6 +94,22 @@ nav {
     align-items: center;
 }
 
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1e293b;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links.active a {
+    margin-bottom: 10px;
+}
+
 .nav-links a {
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
@@ -123,7 +139,7 @@ nav {
 
 /*Hamburger Menu*/
 .hamburger {
-    display: none; 
+    display: none;
     background: none;
     border: none;
     color: white;
@@ -134,26 +150,29 @@ nav {
 
 /* Aturan untuk layar kecil*/
 @media (max-width: 768px) {
-    nav { 
+    nav {
         display: flex;
-        flex-wrap: wrap !important; /* Paksa agar elemen bisa turun ke baris bawah */
-        justify-content: space-between !important; 
-        padding: 15px 5%; 
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        padding: 15px 5%;
     }
-    .logo { 
-        order: 1; 
-        margin: 0; 
+    .logo {
+        order: 1;
+        margin: 0;
     }
-    .hamburger { 
-        display: flex; 
-        order: 2; 
-        margin: 0; 
+    .hamburger {
+        display: flex;
+        order: 2;
+        margin: 0;
     }
-    .search { 
-        order: 3; 
-        width: 100% !important; /* Paksa ambil 1 baris penuh */
-        max-width: 100% !important; 
-        margin-top: 15px; /* Jarak antara search dengan logo di atasnya */
+    .nav-links {
+        display: none;
+    }
+    .search {
+        order: 3;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 15px;
     }
 }
 
@@ -253,7 +272,7 @@ nav {
 .banner {
     position: relative;
     background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80') center/cover no-repeat;
-    background-color: #333; 
+    background-color: #333;
     color: #fff;
     padding: 80px 5%;
     text-align: center;
@@ -275,7 +294,7 @@ nav {
     animation: slideDown 0.8s ease;
 }
 
-.banner h1 span { color: #fbbf24; }
+.banner h1 span { color: #93c5fd; }
 
 .banner p {
     color: rgba(255, 255, 255, 0.85);
@@ -472,26 +491,33 @@ nav {
 
 .card-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
-.btn-cart, .btn-checkout {
+.btn-detail, .btn-cart, .btn-checkout {
     border: none;
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 10px 8px;
     font-size: 13px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.25s ease;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
 }
 
+.btn-detail { background: #e2e8f0; color: #334155; }
+.btn-detail:hover { background: #cbd5e1; transform: translateY(-2px); }
+
 .btn-cart { background: #f1f5f9; color: #334155; }
-.btn-cart:hover { background: #e2e8f0; transform: scale(1.03); }
+.btn-cart:hover { background: #e2e8f0; transform: translateY(-2px); }
 
 .btn-checkout { background: #1e293b; color: white; }
-.btn-checkout:hover { background: #3b82f6; transform: scale(1.03); box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); }
+.btn-checkout:hover { background: #3b82f6; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(59, 130, 246, 0.35); }
 
 /* 
    CHECKOUT  */
@@ -587,6 +613,48 @@ nav {
     margin-top: 10px;
 }
 
+.detail-actions {
+    margin-top: 20px;
+}
+
+.btn-primary, .btn-secondary {
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #3b82f6, #60a5fa);
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #2563eb, #3b82f6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+    border: 2px solid #e2e8f0;
+}
+
+.btn-primary:active, .btn-secondary:active {
+    transform: translateY(0) scale(0.98);
+}
+
 .checkout-box button {
     border: none;
     padding: 14px;
@@ -602,6 +670,86 @@ nav {
 
 #cancelCheckout { background: #f1f5f9; color: #475569; }
 #cancelCheckout:hover { background: #e2e8f0; }
+
+/* 
+   DETAIL MODAL */
+.detail-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.detail-box {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.detail-info h4 {
+    font-size: 24px;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.detail-info p {
+    font-size: 16px;
+    color: #475569;
+    margin-bottom: 15px;
+}
+
+.detail-specs h5, .detail-description h5 {
+    font-size: 18px;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.detail-specs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-specs li {
+    padding: 5px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.detail-description p {
+    line-height: 1.6;
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .detail-content {
+        grid-template-columns: 1fr;
+    }
+}
 
 /* 
    Riwayat Transaksi
@@ -757,25 +905,170 @@ footer {
     color: #64748b;
 }
 
-/*
-   untuk responsif selain di laptop */
-@media (max-width: 768px) {
-    nav { flex-direction: column; gap: 15px; padding: 15px; }
-    .search { width: 100%; order: 3; max-width: 100%; }
-    .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; }
-    .cart-box { top: 140px; right: 2%; width: 96%; }
-    .banner h1 { font-size: 32px; }
-    .banner p { font-size: 15px; }
-    .feat { min-width: 45%; border-right: none; border-bottom: 1px solid #e2e8f0; }
-    .fgrid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-    .grid-2 { grid-template-columns: 1fr; }
-    .card-actions { grid-template-columns: 1fr; }
-    .trx-actions { flex-direction: column; align-items: stretch; gap: 8px; margin-top: 10px;}
+/* Responsivitas untuk mobile kecil (tablet dan bawah) */
+@media (max-width: 576px) {
+    nav { padding: 10px; }
+    .logo { font-size: 20px; }
+    .hamburger { font-size: 24px; }
+    .search input { font-size: 13px; padding: 8px 12px; }
+    .search button { padding: 8px 14px; font-size: 13px; }
+    .cart-toggle { padding: 6px 16px; font-size: 13px; }
+    .cart-box { top: 120px; width: 95%; right: 2.5%; padding: 15px; }
+    .banner { padding: 60px 5%; }
+    .banner h1 { font-size: 28px; margin-bottom: 12px; }
+    .banner p { font-size: 14px; margin-bottom: 20px; max-width: 100%; }
+    .btn-red { padding: 12px 24px; font-size: 14px; }
+    .feat { padding: 15px 20px; min-width: 100%; border-bottom: 1px solid #e2e8f0; }
+    .feat .icon { font-size: 20px; }
+    .feat strong { font-size: 13px; }
+    .feat span { font-size: 12px; }
+    .content { padding: 30px 5%; }
+    .sec-title { font-size: 20px; margin: 20px 0 20px; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+    .card-body { padding: 12px; }
+    .card-cat { font-size: 11px; }
+    .card-name { font-size: 14px; margin: 4px 0 8px; }
+    .price { font-size: 16px; }
+    .btn-cart, .btn-checkout { padding: 8px; font-size: 12px; }
+    .checkout-box { width: 95%; padding: 20px; }
+    .checkout-box h3 { font-size: 18px; }
+    .form-group label { font-size: 12px; }
+    .checkout-box input, .checkout-box select, .form-group input, .form-group select, .form-group textarea { padding: 10px; font-size: 13px; }
+    .payment-info img { width: 100px; height: 100px; }
+    .transaction-history { padding: 20px; }
+    #historyList li { padding: 15px; }
     .contact-container { padding: 20px; }
+    .contact-container textarea { min-height: 80px; }
+    .btn-submit-contact { padding: 12px; font-size: 13px; }
+    footer { padding: 40px 5% 20px; }
+    .fgrid { gap: 20px; }
+    .fgrid h4 { font-size: 14px; margin-bottom: 15px; }
+    .fgrid p, .fgrid a { font-size: 13px; margin-bottom: 10px; }
+    .nyoh { font-size: 12px; padding-top: 15px; }
 }
+
 /* Tag Kategori Aktif */
 .tag-active {
     background: #0a1263;
     color: #fff;
     border-color: #0a1263;
+}
+/* ============================================================
+   SIZE SELECTOR — Harga Dinamis
+   ============================================================ */
+
+.detail-price-block {
+    margin-bottom: 16px;
+}
+
+#detailPrice {
+    font-size: 22px;
+    font-weight: 700;
+    color: #e11d48;
+    margin: 0 0 10px 0;
+    transition: all 0.3s ease;
+}
+
+#detailPrice.price-updated {
+    animation: priceFlash 0.5s ease;
+}
+
+@keyframes priceFlash {
+    0%   { transform: scale(1);    color: #e11d48; }
+    30%  { transform: scale(1.12); color: #10b981; }
+    60%  { transform: scale(1.06); color: #10b981; }
+    100% { transform: scale(1);    color: #e11d48; }
+}
+
+.size-selector-wrapper {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 8px;
+}
+
+.size-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.size-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.size-btn {
+    min-width: 48px;
+    padding: 8px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.size-btn:hover {
+    border-color: #e11d48;
+    color: #e11d48;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.15);
+}
+
+.size-btn-active {
+    background: linear-gradient(135deg, #e11d48, #be123c);
+    border-color: #e11d48;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(225, 29, 72, 0.35);
+}
+
+.size-btn-active::after {
+    content: '✓';
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 9px;
+    opacity: 0.8;
+}
+
+.size-notice {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.size-notice-selected {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.size-notice-warn {
+    color: #f59e0b;
+    font-weight: 600;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-6px); }
+    40%       { transform: translateX(6px); }
+    60%       { transform: translateX(-4px); }
+    80%       { transform: translateX(4px); }
+}
+
+.size-btn-group.shake {
+    animation: shake 0.5s ease;
 }

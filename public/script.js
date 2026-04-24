@@ -113,7 +113,168 @@ cartButtons.forEach(btn => {
         }, 2000);
     });
 });
- 
+
+// LOGIKA DETAIL PRODUK
+const detailModal = document.getElementById('detailModal');
+const detailTitle = document.getElementById('detailTitle');
+const detailImage = document.getElementById('detailImage');
+const detailName = document.getElementById('detailName');
+const detailCategory = document.getElementById('detailCategory');
+const detailPrice = document.getElementById('detailPrice');
+const detailSize = document.getElementById('detailSize');
+const detailMaterial = document.getElementById('detailMaterial');
+const detailColor = document.getElementById('detailColor');
+const detailWeight = document.getElementById('detailWeight');
+const detailOrigin = document.getElementById('detailOrigin');
+const detailDescription = document.getElementById('detailDescription');
+const closeDetail = document.getElementById('closeDetail');
+const addToCartFromDetail = document.getElementById('addToCartFromDetail');
+
+const productDetails = {
+    'Sneakers Urban Premium': {
+        size: '40-45',
+        material: 'Kulit sintetis dan mesh',
+        color: 'Hitam dengan aksen biru',
+        weight: '800g',
+        origin: 'Indonesia',
+        description: 'Sepatu sneakers premium dengan desain urban yang stylish. Cocok untuk aktivitas sehari-hari maupun olahraga ringan. Sol karet anti-slip dan bantalan yang nyaman.'
+    },
+    'Jaket Kulit Classic Vintage': {
+        size: 'M, L, XL',
+        material: 'Kulit sapi asli',
+        color: 'Coklat tua',
+        weight: '1.2kg',
+        origin: 'Italia',
+        description: 'Jaket kulit klasik dengan potongan vintage yang timeless. Dibuat dari kulit sapi berkualitas tinggi dengan jahitan rapi. Cocok untuk berbagai acara formal maupun kasual.'
+    },
+    'Jam Tangan Minimalis Elite': {
+        size: 'One size',
+        material: 'Stainless steel dan kaca mineral',
+        color: 'Silver',
+        weight: '150g',
+        origin: 'Swiss',
+        description: 'Jam tangan minimalis dengan desain elegan. Gerakan kuarsa presisi tinggi dengan ketahanan air 50m. Cocok untuk penggunaan sehari-hari.'
+    },
+    'Backpack Kanvas Explorer': {
+        size: '30L',
+        material: 'Kanvas tebal dan kulit sintetis',
+        color: 'Abu-abu',
+        weight: '600g',
+        origin: 'Indonesia',
+        description: 'Tas ransel multifungsi dengan kapasitas besar. Dilengkapi berbagai kompartemen untuk organizing yang baik. Ideal untuk traveling atau kerja sehari-hari.'
+    },
+    'Kacamata Hitam Aviator': {
+        size: 'One size',
+        material: 'Frame metal dan lensa polarized',
+        color: 'Gold',
+        weight: '80g',
+        origin: 'Italia',
+        description: 'Kacamata aviator klasik dengan lensa polarized UV400. Melindungi mata dari sinar UV dan memberikan tampilan yang stylish.'
+    },
+    'Celana Denim Blue Wash': {
+        size: '28-36',
+        material: 'Denim 100% katun',
+        color: 'Biru tua',
+        weight: '700g',
+        origin: 'Indonesia',
+        description: 'Celana denim klasik dengan wash blue yang natural. Potongan straight fit yang nyaman untuk berbagai aktivitas. Jahitan kuat dan tahan lama.'
+    }
+};
+
+const detailButtons = document.querySelectorAll('.btn-detail');
+
+detailButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const card = btn.closest('.card');
+        const name = card.querySelector('.card-name').innerText;
+        const category = card.querySelector('.card-cat').innerText;
+        const price = card.querySelector('.price').innerText;
+        const image = card.querySelector('img').src;
+
+        const details = productDetails[name] || {
+            size: 'N/A',
+            material: 'N/A',
+            color: 'N/A',
+            weight: 'N/A',
+            origin: 'N/A',
+            description: 'Detail produk belum tersedia.'
+        };
+
+        detailTitle.innerText = 'Detail Produk';
+        detailImage.src = image;
+        detailName.innerText = name;
+        detailCategory.innerText = category;
+        detailPrice.innerText = price;
+        detailSize.innerText = details.size;
+        detailMaterial.innerText = details.material;
+        detailColor.innerText = details.color;
+        detailWeight.innerText = details.weight;
+        detailOrigin.innerText = details.origin;
+        detailDescription.innerText = details.description;
+
+        detailModal.style.display = 'flex';
+
+        // Tampilkan size selector sesuai produk
+        renderSizeSelector(name, price);
+    });
+});
+
+closeDetail.addEventListener('click', () => {
+    detailModal.style.display = 'none';
+});
+
+detailModal.addEventListener('click', (e) => {
+    if (e.target === detailModal) {
+        detailModal.style.display = 'none';
+    }
+});
+
+addToCartFromDetail.addEventListener('click', () => {
+    const name = detailName.innerText;
+
+    // Cek apakah produk ini punya varian ukuran
+    const hasSizes = typeof productSizePricing !== 'undefined' &&
+                     productSizePricing[name] !== undefined &&
+                     productSizePricing[name] !== null;
+
+    if (hasSizes && !selectedSize) {
+        // Belum pilih ukuran — tampilkan peringatan
+        const notice = document.getElementById('sizeNotice');
+        if (notice) {
+            notice.innerText = '⚠️ Pilih ukuran terlebih dahulu!';
+            notice.className = 'size-notice size-notice-warn';
+        }
+        const group = document.getElementById('sizeBtnGroup');
+        if (group) {
+            group.classList.add('shake');
+            setTimeout(() => group.classList.remove('shake'), 600);
+        }
+        return;
+    }
+
+    let priceStr, priceNumber;
+    if (hasSizes && selectedSize) {
+        priceNumber = selectedSizePrice;
+        priceStr    = 'Rp ' + priceNumber.toLocaleString('id-ID');
+    } else {
+        priceStr    = detailPrice.innerText;
+        priceNumber = parseInt(priceStr.replace(/[^\d]/g, ''));
+    }
+
+    const label = selectedSize ? name + ' (Ukuran ' + selectedSize + ')' : name;
+    cartData.push({ name: label, priceStr, priceNumber });
+    updateCartUI();
+
+    cartToggleBtn.style.transform = 'scale(1.1)';
+    setTimeout(() => cartToggleBtn.style.transform = 'scale(1)', 200);
+
+    detailModal.style.display = 'none';
+    cartBox.style.display = 'block';
+    setTimeout(() => {
+        if(!cartBox.matches(':hover')) cartBox.style.display = 'none';
+    }, 2000);
+});
+
 // FILTER KATEGORI
 const tags = document.querySelectorAll('.tag');
 const cards = document.querySelectorAll('.card');
@@ -398,3 +559,118 @@ contactForm.addEventListener("submit", function(event) {
     // Reset isi form kembali kosong
     contactForm.reset();
 });
+// ============================================================
+// FITUR SIZE SELECTOR DENGAN HARGA DINAMIS
+// ============================================================
+
+// Data ukuran & harga per produk
+// Format: { ukuran: hargaDasar + surcharge }
+const productSizePricing = {
+    'Jaket Kulit Classic Vintage': {
+        basePrice: 1250000,
+        sizes: [
+            { label: 'S',   price: 1150000 },
+            { label: 'M',   price: 1250000 },
+            { label: 'L',   price: 1300000 },
+            { label: 'XL',  price: 1350000 },
+            { label: 'XXL', price: 1400000 },
+        ]
+    },
+    'Celana Denim Blue Wash': {
+        basePrice: 350000,
+        sizes: [
+            { label: '28', price: 320000 },
+            { label: '30', price: 340000 },
+            { label: '32', price: 350000 },
+            { label: '34', price: 360000 },
+            { label: '36', price: 375000 },
+        ]
+    },
+    'Sneakers Urban Premium': {
+        basePrice: 899000,
+        sizes: [
+            { label: '40', price: 875000 },
+            { label: '41', price: 885000 },
+            { label: '42', price: 899000 },
+            { label: '43', price: 909000 },
+            { label: '44', price: 919000 },
+            { label: '45', price: 929000 },
+        ]
+    },
+    'Backpack Kanvas Explorer': {
+        basePrice: 450000,
+        sizes: [
+            { label: '20L', price: 390000 },
+            { label: '25L', price: 420000 },
+            { label: '30L', price: 450000 },
+            { label: '35L', price: 480000 },
+        ]
+    },
+    // Produk one-size: tidak perlu selector
+    'Jam Tangan Minimalis Elite': null,
+    'Kacamata Hitam Aviator': null,
+};
+
+let selectedSize = null;
+let selectedSizePrice = null;
+
+function formatRupiah(num) {
+    return 'Rp ' + num.toLocaleString('id-ID');
+}
+
+function renderSizeSelector(productName, basePrice) {
+    const wrapper  = document.getElementById('sizeSelectorWrapper');
+    const group    = document.getElementById('sizeBtnGroup');
+    const notice   = document.getElementById('sizeNotice');
+    const priceEl  = document.getElementById('detailPrice');
+
+    selectedSize      = null;
+    selectedSizePrice = null;
+
+    const pricing = productSizePricing[productName];
+
+    // Produk tanpa varian ukuran (one-size / aksesoris)
+    if (!pricing) {
+        wrapper.style.display = 'none';
+        priceEl.innerText = basePrice;
+        priceEl.classList.remove('price-updated');
+        return;
+    }
+
+    wrapper.style.display = 'block';
+    group.innerHTML = '';
+    priceEl.innerText = basePrice + ' — pilih ukuran';
+    notice.innerText  = '👆 Klik ukuran untuk melihat harganya';
+    notice.className  = 'size-notice';
+
+    pricing.sizes.forEach(({ label, price }) => {
+        const btn = document.createElement('button');
+        btn.className   = 'size-btn';
+        btn.textContent = label;
+        btn.setAttribute('data-size', label);
+        btn.setAttribute('data-price', price);
+
+        btn.addEventListener('click', () => {
+            // Unselect semua
+            group.querySelectorAll('.size-btn').forEach(b => b.classList.remove('size-btn-active'));
+            btn.classList.add('size-btn-active');
+
+            selectedSize      = label;
+            selectedSizePrice = price;
+
+            // Animasi harga
+            priceEl.classList.remove('price-updated');
+            void priceEl.offsetWidth; // reflow trigger
+            priceEl.innerText = formatRupiah(price);
+            priceEl.classList.add('price-updated');
+
+            // Update notice
+            notice.innerText = `✅ Ukuran ${label} dipilih — ${formatRupiah(price)}`;
+            notice.className = 'size-notice size-notice-selected';
+        });
+
+        group.appendChild(btn);
+    });
+}
+
+// addToCartFromDetail sudah di-handle di atas dengan validasi ukuran.

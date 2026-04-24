@@ -10,13 +10,13 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_produk');
-            $table->integer('harga');
-            $table->string('nama');
-            $table->string('telepon');
-            $table->string('alamat');
-            $table->string('metode_pembayaran');
-            $table->string('status')->default('pending');
+            $table->string('productName');
+            $table->string('price');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('paymentMethod');
+            $table->string('status')->default('Belum Diterima');
             $table->timestamps();
         });
     }
