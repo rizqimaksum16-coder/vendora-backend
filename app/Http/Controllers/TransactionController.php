@@ -12,6 +12,16 @@ class TransactionController extends Controller
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'nama_produk'       => 'required|string',
+            'harga'             => 'required|integer',
+            'nama'              => 'required|string',
+            'telepon'           => 'required|string',
+            'alamat'            => 'required|string',
+            'metode_pembayaran' => 'required|string',
+            'status'            => 'sometimes|string',
+        ]);
+
         return Transaction::create($request->all());
     }
 
