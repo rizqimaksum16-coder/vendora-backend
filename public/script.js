@@ -674,3 +674,34 @@ function renderSizeSelector(productName, basePrice) {
 }
 
 // addToCartFromDetail sudah di-handle di atas dengan validasi ukuran.
+const checkoutFromDetail = document.getElementById("checkoutFromDetail");
+
+checkoutFromDetail.addEventListener("click", () => {
+    const name = detailName.innerText;
+
+    const hasSizes = productSizePricing[name];
+
+    if (hasSizes && !selectedSize) {
+        alert("Pilih ukuran dulu ya!");
+        return;
+    }
+
+    let priceStr, priceNumber;
+
+    if (hasSizes && selectedSize) {
+        priceNumber = selectedSizePrice;
+        priceStr = "Rp " + priceNumber.toLocaleString("id-ID");
+    } else {
+        priceStr = detailPrice.innerText;
+    }
+
+    selectedCheckoutProduct = {
+        name: selectedSize ? name + " (Ukuran " + selectedSize + ")" : name,
+        price: priceStr
+    };
+
+    isCartItemCheckout = false;
+
+    detailModal.style.display = "none";
+    resetAndOpenModal();
+});
