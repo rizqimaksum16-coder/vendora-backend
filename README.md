@@ -1,6 +1,6 @@
 ## Project Vendora
 
-Vendora adalah website yang dikembangkan oleh Kelompok 26 dalam event Aspire 2026. Website ini berfungsi untuk menyediakan layanan pembelian pakaian dari toko bernama Vendora Fashion.
+Vendora adalah website yang dikembangkan oleh Kelompok 26 dalam event Aspire 2026. Website ini berfungsi untuk menyediakan layanan pembelian pakaian dari toko online bernama Vendora Fashion.
 
 ## Screenshoot Vendora Web App
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c2c0573a-753a-4abd-9708-5e13bcbc97fd" />
