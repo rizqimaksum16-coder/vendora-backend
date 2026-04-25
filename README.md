@@ -9,19 +9,19 @@
 
 ## Project Vendora
 
-Vendora adalah Website yang dikembangkan oleh kelompok 26 dalam event Aspire 2026. Website ini berfungsi untuk menyediakan layanan pembelian pakaian dari toko bernama vendora fashion.
+Vendora adalah website yang dikembangkan oleh Kelompok 26 dalam event Aspire 2026. Website ini berfungsi untuk menyediakan layanan pembelian pakaian dari toko bernama Vendora Fashion.
 
 ## Screenshoot Vendora Web App
 <img width="1366" height="768" alt="Cuplikan Layar Dari 2026-04-25 11-16-24" src="https://github.com/user-attachments/assets/4c3a588d-9bb8-4670-b8fe-d60f0c3950c8" />
-
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<img width="1366" height="768" alt="Cuplikan Layar Dari 2026-04-25 11-43-36" src="https://github.com/user-attachments/assets/7feff586-aaa1-4b6a-b505-a7b029a404f7" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/a16f0cc8-c38b-4161-80cd-5b009eaf3a7f" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9da0aeb0-1e27-4509-914e-56d2563d65da" />
+## Fitur-fitur yang sudah berfungsi di Website
+1. Search bar berfungsi dengan baik.
+2. Halaman Website responsive di semua device.
+3. Produk di etalase sudah diberikan kategori sendiri.
+4. Ketika user memencet checkout, data akan tersimpan di database.
+5. Riwayat transaksi bisa diubah status penerimaannya dan dihapus oleh admin toko online.
 
 ### Premium Partners
 
