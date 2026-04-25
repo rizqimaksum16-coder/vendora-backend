@@ -17,35 +17,11 @@ Vendora adalah website yang dikembangkan oleh Kelompok 26 dalam event Aspire 202
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/a16f0cc8-c38b-4161-80cd-5b009eaf3a7f" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9da0aeb0-1e27-4509-914e-56d2563d65da" />
 ## Fitur-fitur yang sudah berfungsi di Website
-1. Search bar berfungsi dengan baik.
-2. Halaman Website responsive di semua device.
-3. Produk di etalase sudah diberikan kategori sendiri.
-4. Ketika user memencet checkout, data akan tersimpan di database.
-5. Riwayat transaksi bisa diubah status penerimaannya dan dihapus oleh admin toko online.
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
+- **Search bar berfungsi dengan baik.
+- **Halaman Website responsive di semua device.
+- **Produk di etalase sudah diberikan kategori sendiri.
+- **Ketika user memencet checkout, data akan tersimpan di database.
+- **Riwayat transaksi bisa diubah status penerimaannya dan dihapus oleh admin toko online.
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
