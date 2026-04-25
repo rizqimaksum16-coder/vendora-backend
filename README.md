@@ -26,4 +26,7 @@ Vendora adalah website yang dikembangkan oleh Kelompok 26 dalam event Aspire 202
 5. Ketika user memencet checkout dan mengisi data pembelian, data akan tersimpan di database.
 6. User bisa menyimpan produk di keranjang agar bisa dibeli di lain waktu.
 7. Riwayat transaksi bisa diubah status penerimaannya dan dihapus oleh admin toko online.
+## Video penggunaan Vendora Web App
+https://github.com/user-attachments/assets/2bd233e5-89ce-44ea-8312-83f8a25ec8cf
+
 
